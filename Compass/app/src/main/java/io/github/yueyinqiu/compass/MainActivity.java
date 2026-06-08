@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +15,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.lqr.picselect.LQRPhotoSelectUtils;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,10 +29,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity implements Compass.CompassListener
 {
@@ -70,32 +71,29 @@ public class MainActivity extends AppCompatActivity implements Compass.CompassLi
         return true;
     }
 
-    LQRPhotoSelectUtils mLqrPhotoSelectUtils;
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        mLqrPhotoSelectUtils.attachToActivityForResult(requestCode, resultCode, data);
-    }
+    // AndroidX Activity Result API 替代 LQRPhotoSelectUtils
+    private final ActivityResultLauncher<String> imagePickerLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(),
+                    uri -> {
+                        if (uri != null) {
+                            arrowView.setImageURI(uri);
+                            try (FileOutputStream outputStream = openFileOutput(
+                                    "imagePath", Context.MODE_PRIVATE))
+                            {
+                                OutputStreamWriter writer = new OutputStreamWriter(outputStream);
+                                BufferedWriter bufferedWriter = new BufferedWriter(writer);
+                                bufferedWriter.write(uri.toString());
+                                bufferedWriter.flush();
+                            }
+                            catch (IOException e)
+                            {
+                                MakeToast("ecf11c80: Cannot write settings files.");
+                            }
+                        }
+                    });
 
     private boolean setupPhotoSelectUtils()
     {
-        this.mLqrPhotoSelectUtils = new LQRPhotoSelectUtils(
-                this, (outputFile, outputUri) -> {
-            arrowView.setImageURI(outputUri);
-            try (FileOutputStream outputStream = openFileOutput(
-                    "imagePath", Context.MODE_PRIVATE))
-            {
-                OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-                BufferedWriter bufferedWriter = new BufferedWriter(writer);
-                bufferedWriter.write(outputUri.toString());
-                bufferedWriter.flush();
-            }
-            catch (IOException e)
-            {
-                MakeToast("ecf11c80: Cannot write settings files.");
-            }
-        }, false);
         return true;
     }
     //endregion
@@ -135,16 +133,11 @@ public class MainActivity extends AppCompatActivity implements Compass.CompassLi
         }
         else if (id == R.id.select_image)
         {
-            final String[] t = new String[]
-                    {
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                    };
-
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED)
-                requestPermissions(t, 233);
-            mLqrPhotoSelectUtils.selectPhoto();
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 233);
+            imagePickerLauncher.launch("image/*");
         }
         return true;
     }
