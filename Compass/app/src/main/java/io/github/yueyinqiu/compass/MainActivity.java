@@ -139,6 +139,26 @@ public class MainActivity extends AppCompatActivity implements Compass.CompassLi
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 233);
             imagePickerLauncher.launch("image/*");
         }
+        else if (id == R.id.skin_classic)
+        {
+            arrowView.setImageResource(R.mipmap.skin_classic);
+            MakeToast("传统经典主题");
+        }
+        else if (id == R.id.skin_dark)
+        {
+            arrowView.setImageResource(R.mipmap.skin_dark);
+            MakeToast("暗黑主题");
+        }
+        else if (id == R.id.skin_ziwei)
+        {
+            arrowView.setImageResource(R.mipmap.skin_ziwei);
+            MakeToast("紫微主题");
+        }
+        else if (id == R.id.skin_default)
+        {
+            arrowView.setImageResource(R.mipmap.skin_default);
+            MakeToast("默认主题");
+        }
         return true;
     }
     //endregion

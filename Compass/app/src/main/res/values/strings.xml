@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Compass</string>
     <string name="select_skin">select skin</string>
+    <string name="skin_classic">传统经典</string>
+    <string name="skin_dark">暗黑</string>
+    <string name="skin_ziwei">紫微</string>
+    <string name="skin_default">默认</string>
+    <string name="skin_from_gallery">从相册选择</string>
     <string name="view_repository">view repository</string>
 </resources>

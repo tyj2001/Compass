@@ -2,7 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="@string/select_skin"
-        android:id="@+id/select_image">
+        android:id="@+id/select_skin_menu">
+        <menu>
+            <item
+                android:title="@string/skin_classic"
+                android:id="@+id/skin_classic" />
+            <item
+                android:title="@string/skin_dark"
+                android:id="@+id/skin_dark" />
+            <item
+                android:title="@string/skin_ziwei"
+                android:id="@+id/skin_ziwei" />
+            <item
+                android:title="@string/skin_default"
+                android:id="@+id/skin_default" />
+            <item
+                android:title="@string/skin_from_gallery"
+                android:id="@+id/select_image" />
+        </menu>
     </item>
     <item
         android:title="@string/view_repository"
