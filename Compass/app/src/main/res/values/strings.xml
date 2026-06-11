@@ -5,6 +5,18 @@
     <string name="skin_dark">暗黑</string>
     <string name="skin_ziwei">紫微</string>
     <string name="skin_default">默认</string>
+    <string name="skin_black_arrow">黑色箭头</string>
+    <string name="skin_bagua">后天八卦</string>
+    <string name="skin_feixing">九宫飞星</string>
+    <string name="skin_feixing_1">飞星 1</string>
+    <string name="skin_feixing_2">飞星 2</string>
+    <string name="skin_feixing_3">飞星 3</string>
+    <string name="skin_feixing_4">飞星 4</string>
+    <string name="skin_feixing_5">飞星 5(生辰)</string>
+    <string name="skin_feixing_6">飞星 6</string>
+    <string name="skin_feixing_7">飞星 7</string>
+    <string name="skin_feixing_8">飞星 8</string>
+    <string name="skin_feixing_9">飞星 9</string>
     <string name="skin_from_gallery">从相册选择</string>
     <string name="view_repository">view repository</string>
 </resources>

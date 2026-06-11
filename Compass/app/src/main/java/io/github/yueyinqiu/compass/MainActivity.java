@@ -159,6 +159,61 @@ public class MainActivity extends AppCompatActivity implements Compass.CompassLi
             arrowView.setImageResource(R.mipmap.skin_default);
             MakeToast("默认主题");
         }
+        else if (id == R.id.skin_black_arrow)
+        {
+            arrowView.setImageResource(R.mipmap.skin_black_arrow);
+            MakeToast("黑色箭头");
+        }
+        else if (id == R.id.skin_bagua)
+        {
+            arrowView.setImageResource(R.mipmap.skin_bagua);
+            MakeToast("后天八卦");
+        }
+        else if (id == R.id.skin_feixing_1)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_1);
+            MakeToast("九宫飞星 1");
+        }
+        else if (id == R.id.skin_feixing_2)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_2);
+            MakeToast("九宫飞星 2");
+        }
+        else if (id == R.id.skin_feixing_3)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_3);
+            MakeToast("九宫飞星 3");
+        }
+        else if (id == R.id.skin_feixing_4)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_4);
+            MakeToast("九宫飞星 4");
+        }
+        else if (id == R.id.skin_feixing_5)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_5_birth);
+            MakeToast("九宫飞星 5(生辰)");
+        }
+        else if (id == R.id.skin_feixing_6)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_6);
+            MakeToast("九宫飞星 6");
+        }
+        else if (id == R.id.skin_feixing_7)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_7);
+            MakeToast("九宫飞星 7");
+        }
+        else if (id == R.id.skin_feixing_8)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_8);
+            MakeToast("九宫飞星 8");
+        }
+        else if (id == R.id.skin_feixing_9)
+        {
+            arrowView.setImageResource(R.mipmap.feixing_9);
+            MakeToast("九宫飞星 9");
+        }
         return true;
     }
     //endregion

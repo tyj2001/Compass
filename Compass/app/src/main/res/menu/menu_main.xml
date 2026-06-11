@@ -5,6 +5,10 @@
         android:id="@+id/select_skin_menu">
         <menu>
             <item
+                android:title="@string/skin_default"
+                android:id="@+id/skin_default" />
+            <!-- 专业罗盘皮肤 -->
+            <item
                 android:title="@string/skin_classic"
                 android:id="@+id/skin_classic" />
             <item
@@ -13,9 +17,29 @@
             <item
                 android:title="@string/skin_ziwei"
                 android:id="@+id/skin_ziwei" />
+            <!-- 作者皮肤库 -->
             <item
-                android:title="@string/skin_default"
-                android:id="@+id/skin_default" />
+                android:title="@string/skin_black_arrow"
+                android:id="@+id/skin_black_arrow" />
+            <item
+                android:title="@string/skin_bagua"
+                android:id="@+id/skin_bagua" />
+            <!-- 九宫飞星子菜单 -->
+            <item
+                android:title="@string/skin_feixing"
+                android:id="@+id/skin_feixing_menu">
+                <menu>
+                    <item android:title="@string/skin_feixing_1" android:id="@+id/skin_feixing_1" />
+                    <item android:title="@string/skin_feixing_2" android:id="@+id/skin_feixing_2" />
+                    <item android:title="@string/skin_feixing_3" android:id="@+id/skin_feixing_3" />
+                    <item android:title="@string/skin_feixing_4" android:id="@+id/skin_feixing_4" />
+                    <item android:title="@string/skin_feixing_5" android:id="@+id/skin_feixing_5" />
+                    <item android:title="@string/skin_feixing_6" android:id="@+id/skin_feixing_6" />
+                    <item android:title="@string/skin_feixing_7" android:id="@+id/skin_feixing_7" />
+                    <item android:title="@string/skin_feixing_8" android:id="@+id/skin_feixing_8" />
+                    <item android:title="@string/skin_feixing_9" android:id="@+id/skin_feixing_9" />
+                </menu>
+            </item>
             <item
                 android:title="@string/skin_from_gallery"
                 android:id="@+id/select_image" />
